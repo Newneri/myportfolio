@@ -1,0 +1,60 @@
+---
+const links = [
+  { href: '#about-section',     label: 'about'    },
+  { href: '#skills-section',    label: 'skills'   },
+  { href: '#education-section', label: 'parcours' },
+  { href: '#projects-section',  label: 'projets'  },
+  { href: '#contact-section',   label: 'contact'  },
+];
+---
+
+<nav
+  id="main-nav"
+  class="
+    fixed bottom-6 left-1/2 -translate-x-1/2 z-50
+    flex gap-1 items-center
+    px-3 py-2 rounded-full
+    bg-surface border border-border shadow-lg
+    opacity-0 transition-opacity duration-500
+  "
+>
+  {links.map(link => (
+    <a
+      href={link.href}
+      data-nav-item
+      class="
+        font-mono text-[0.68rem] tracking-wider
+        px-3 py-1.5 rounded-full
+        text-text-muted
+        hover:text-accent hover:bg-accent-soft
+        transition-all duration-200
+      "
+    >
+      {link.label}
+    </a>
+  ))}
+</nav>
+
+<script>
+  const sections = ['about', 'skills', 'education', 'projects', 'contact'];
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        document.querySelectorAll('[data-nav-item]').forEach(el => {
+          const isActive = el.getAttribute('href') === `#${entry.target.id}`;
+          el.classList.toggle('text-accent',      isActive);
+          el.classList.toggle('bg-accent-soft',   isActive);
+          el.classList.toggle('text-text-muted', !isActive);
+        });
+      });
+    },
+    { threshold: 0.4 }
+  );
+
+  sections.forEach(id => {
+    const el = document.getElementById(`${id}-section`);
+    if (el) observer.observe(el);
+  });
+</script>

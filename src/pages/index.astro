@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import Nav from '../components/Nav.astro';
+import Terminal from '../components/Terminal.astro';
+
+// Sections (à créer une par une)
+import About      from '../components/sections/About.astro';
+import Skills     from '../components/sections/Skills.astro';
+import Education  from '../components/sections/Education.astro';
+import Projects   from '../components/sections/Projects.astro';
+import Contact    from '../components/sections/Contact.astro';
+---
+
+<Layout>
+  <!-- UI globale -->
+  <ThemeToggle />
+  <Nav />
+
+  <!-- Sections dans l'ordre -->
+  <Terminal />
+  <About />
+  <Skills />
+  <Education />
+  <Projects />
+  <Contact />
+</Layout>

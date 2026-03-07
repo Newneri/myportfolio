@@ -1,0 +1,174 @@
+---
+// src/components/Terminal.astro
+---
+
+<section
+  id="terminal-section"
+  class="min-h-screen flex items-center justify-center px-4 py-8"
+>
+  <div class="w-full max-w-2xl">
+
+    <p class="font-mono text-xs tracking-widest uppercase text-text-muted mb-3">
+      abdelhamid akhatar — portfolio
+    </p>
+
+    <div class="rounded-xl border border-border bg-bg overflow-hidden shadow-lg">
+
+      <div class="flex items-center gap-2 px-4 py-3 bg-bg2 border-b border-border">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#FC6058]"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#FEC02F]"></span>
+        <span class="w-2.5 h-2.5 rounded-full bg-[#2ACA44]"></span>
+        <span class="font-mono text-xs text-text-muted mx-auto -translate-x-4">
+          zsh — ~
+        </span>
+      </div>
+
+      <div
+        id="terminal-body"
+        class="px-8 py-7 font-mono text-sm leading-loose min-h-80 bg-bg"
+      ></div>
+    </div>
+
+    <div id="scroll-hint" class="flex flex-col items-center gap-2 mt-8 opacity-0 transition-opacity duration-700">
+      <span class="font-mono text-xs text-text-muted">scroll pour explorer</span>
+      <div class="w-px h-9 scroll-pulse bg-accent opacity-60"></div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import Typed from 'typed.js';
+
+  type LineType = 'cmd' | 'output' | 'ok' | 'spacer';
+
+  interface TerminalLine {
+    type: LineType;
+    text?: string;
+    // Vitesse de frappe en ms par caractère (optionnel, défaut 40)
+    speed?: number;
+  }
+
+  const lines: TerminalLine[] = [
+    { type: 'cmd',    text: 'boot portfolio.sh',                        speed: 60  },
+    { type: 'output', text: 'Chargement du profil...',                  speed: 25  },
+    { type: 'ok',     text: '✓  Abdelhamid Akhatar',                       speed: 30  },
+    { type: 'spacer'                                                                },
+    { type: 'cmd',    text: 'cat info.json',                             speed: 60  },
+    { type: 'output', text: 'École    CY Tech — Ingénieur Informatique', speed: 20  },
+    { type: 'output', text: 'Dispo    22 juin → 31 août 2026',           speed: 20  },
+    { type: 'output', text: 'Poste    Stage dev web / logiciel / data',  speed: 20  },
+    { type: 'spacer'                                                                },
+    { type: 'cmd',    text: 'ls interests/',                             speed: 60  },
+    { type: 'output', text: 'voyage   volleyball   modelage-3d',         speed: 25  },
+    { type: 'spacer'                                                                },
+  ];
+
+  // Couleurs selon le type de ligne
+  const colorClass: Record<LineType, string> = {
+    cmd:    'text-text',
+    output: 'text-text-soft',
+    ok:     'text-green',
+    spacer: '',
+  };
+
+  // Crée une ligne dans le terminal et retourne l'élément <span> cible pour Typed.js
+  function createRow(type: LineType): HTMLSpanElement | null {
+    const body = document.getElementById('terminal-body');
+    if (!body) return null;
+
+    if (type === 'spacer') {
+      const spacer = document.createElement('div');
+      spacer.className = 'h-2';
+      body.appendChild(spacer);
+      return null;
+    }
+
+    const row = document.createElement('div');
+    row.className = 'flex items-start gap-2';
+
+    // Prompt → uniquement sur les lignes cmd
+    if (type === 'cmd') {
+      const prompt = document.createElement('span');
+      prompt.className = 'text-accent select-none shrink-0';
+      prompt.textContent = '→';
+      row.appendChild(prompt);
+    } else {
+      // Indent pour aligner avec les cmd
+      const indent = document.createElement('span');
+      indent.className = 'pl-5 shrink-0';
+      row.appendChild(indent);
+    }
+
+    // Span cible pour Typed.js
+    const target = document.createElement('span');
+    target.className = colorClass[type];
+    row.appendChild(target);
+
+    body.appendChild(row);
+    return target;
+  }
+
+  // Curseur clignotant final
+  function appendFinalCursor(): void {
+    const body = document.getElementById('terminal-body');
+    if (!body) return;
+
+    const row = document.createElement('div');
+    row.className = 'flex items-center gap-2';
+    row.innerHTML = `
+      <span class="text-accent select-none">→</span>
+      <span class="inline-block w-0.5 h-4 bg-accent cursor-blink"></span>
+    `;
+    body.appendChild(row);
+
+    // Révèle le scroll hint et la nav
+    setTimeout(() => {
+      document.getElementById('scroll-hint')?.classList.add('opacity-100');
+    }, 300);
+    setTimeout(() => {
+      const nav = document.getElementById('main-nav');
+      nav?.classList.remove('opacity-0');
+      nav?.classList.add('opacity-100');
+    }, 700);
+  }
+
+  // Lance les lignes en chaîne récursivement
+  function runLine(index: number): void {
+    if (index >= lines.length) {
+      appendFinalCursor();
+      return;
+    }
+
+    const line = lines[index];
+
+    // Les spacers n'ont pas de texte à taper
+    if (line.type === 'spacer') {
+      createRow('spacer');
+      // Petit délai visuel entre les blocs
+      setTimeout(() => runLine(index + 1), 180);
+      return;
+    }
+
+    const target = createRow(line.type);
+    if (!target || !line.text) {
+      runLine(index + 1);
+      return;
+    }
+
+    new Typed(target, {
+      strings: [line.text],
+      typeSpeed: line.speed ?? 40,
+      showCursor: false,   // On gère notre propre curseur
+      onComplete: () => {
+        // Pause naturelle entre les lignes
+        setTimeout(() => runLine(index + 1), 120);
+      },
+    });
+  }
+
+  window.addEventListener('load', () => {
+    // Petit délai initial pour que la page soit bien rendue
+    setTimeout(() => runLine(0), 500);
+  });
+</script>
