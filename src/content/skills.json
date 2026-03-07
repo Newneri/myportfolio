@@ -1,0 +1,14 @@
+[
+  { "name": "JavaScript", "level": 90, "cat": "Frontend" },
+  { "name": "TypeScript", "level": 70, "cat": "Frontend" },
+  { "name": "React",      "level": 80, "cat": "Frontend" },
+  { "name": "Astro",      "level": 87, "cat": "Frontend" },
+  { "name": "Python",     "level": 96, "cat": "Backend"  },
+  { "name": "Java",       "level": 55, "cat": "Backend"  },
+  { "name": "Node.js",    "level": 82, "cat": "Backend"  },
+  { "name": "SQL",        "level": 88, "cat": "Data"     },
+  { "name": "R",     "level": 60, "cat": "Data"     },
+  { "name": "Blender",    "level": 70, "cat": "3D"       },
+  { "name": "Git",        "level": 94, "cat": "Tools"    },
+  { "name": "Linux",      "level": 86, "cat": "Tools"    }
+]

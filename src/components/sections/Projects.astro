@@ -1,0 +1,89 @@
+---
+// src/components/sections/Projects.astro
+import projects from '../../content/projects.json';
+---
+
+<section id="projects-section" class="max-w-4xl mx-auto px-8 py-28">
+
+  <!-- Eyebrow -->
+  <p class="reveal font-mono text-xs tracking-widest uppercase text-accent mb-4">
+    04 — projets
+  </p>
+
+  <!-- Titre -->
+  <h2 class="reveal font-serif font-light text-5xl leading-tight mb-12">
+    Ce que j'ai<br>
+    <em class="italic text-accent">construit</em>
+  </h2>
+
+  <!-- Grille projets -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    {projects.map((project, i) => (
+      <a
+        href={project.link}
+        class="project-card group bg-surface border border-border rounded-xl p-6 
+        shadow-soft hover:-translate-y-1 hover:border-accent hover:shadow-lg transition-all duration-300
+        flex flex-col"
+        data-index={i}
+      >
+        <!-- Header -->
+        <div class="flex justify-between items-start mb-3">
+          <h3 class="text-base font-medium text-text">{project.name}</h3>
+          <span class="text-text-muted group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 text-lg leading-none">
+            ↗
+          </span>
+        </div>
+
+        <!-- Description -->
+        <p class="text-sm leading-relaxed text-text-soft mb-5 flex-1">{project.desc}</p>
+
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-1.5 mt-auto">
+          {project.tags.map(tag => (
+            <span class="font-mono text-xs px-2.5 py-0.5 rounded bg-bg2 text-text-muted border border-border">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </a>
+    ))}
+  </div>
+
+</section>
+
+<hr class="border-t border-border mx-8" />
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Reveals du titre
+  gsap.utils.toArray<HTMLElement>('#projects-section .reveal').forEach((el, i) => {
+    gsap.fromTo(el,
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1, y: 0,
+        duration: 0.7,
+        delay: i * 0.1,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+      }
+    );
+  });
+
+  // Cartes en cascade
+  gsap.utils.toArray<HTMLElement>('.project-card').forEach((card, i) => {
+    gsap.fromTo(card,
+      { opacity: 0, y: 28 },
+      {
+        opacity: 1, y: 0,
+        duration: 0.55,
+        delay: (i % 2) * 0.1,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: card, start: 'top 88%', once: true },
+      }
+    );
+  });
+</script>

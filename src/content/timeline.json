@@ -1,0 +1,30 @@
+[
+    {
+        "date": "2025 — présent",
+        "role": "Cycle Ingénieur Informatique",
+        "place": "CY Tech — Pau",
+        "desc": "Spécialisation développement logiciel et systèmes. Projets web, algorithmique, bases de données.",
+        "type": "education"
+    },
+    {
+        "date": "2025 − présent",
+        "role": "Animateur et résponsable des ateliers informatiques",
+        "place": "Science Odyssée — Pau",
+        "desc": "Organisation d'ateliers pour enfants et adolescents. Initiation à la programmation, robotique, et découverte des sciences informatiques.",
+        "type": "experience"
+    },
+    {
+        "date": "2025 − présent",
+        "role": "Professeur particulier en mathématiques, espagnol et informatique",
+        "place": "Complétude — Pau",
+        "desc": "Soutien scolaire pour collégiens et lycéens. Préparation aux examens, aide aux devoirs, et développement de compétences en mathématiques, espagnol et informatique.",
+        "type": "experience"
+    },
+    {
+        "date": "2022 — 2025",
+        "role": "Classes Préparatoire intégrée",
+        "place": "CY Tech — Pau",
+        "desc": "Mathématiques, physique, informatique. Formation à la rigueur et à la résolution de problèmes.",
+        "type": "education"
+    }
+]

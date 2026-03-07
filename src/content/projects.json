@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Portfolio interactif",
+    "desc": "Ce site — terminal animé + scroll cinématique avec mode sombre/clair.",
+    "tags": ["Astro", "GSAP", "TypeScript", "Tailwind"],
+    "link": "#"
+  },
+  {
+    "name": "EcoBase − Ecocène",
+    "desc": "Application web pour la gestion de projets collaboratifs entre plusieurs associations à l’échelle européenne. Gestion des taches, droits, membres… Avec PHP, Javascript, HTML et CSS.",
+    "tags": ["PHP", "HTML", "CSS", "JavaScript"],
+    "link": "#"
+  },
+  {
+    "name": "Writterly",
+    "desc": "Application web pour l’écriture de mini-blogs développée entièrement avec React et NodeJS. Mise en place d’une base de données SQLite, authentification avec JWT et construction d’une structure API.",
+    "tags": ["React", "NodeJS", "SQLite", "JWT"],
+    "link": "#"
+  },
+  {
+    "name": "Job Scrapper",
+    "desc": "Script Python utilisant BeautifulSoup, CloudScraper et Selenium pour extraire des offres d’emploi depuis plusieurs sites web (Indeed, Linkedin, WTJ, Hellowork). Les offres sont ensuite envoyées via un email HTML formaté à l'utilisatuer",
+    "tags": ["Python", "Automatisation", "Scraping"],
+    "link": "#"
+  }
+]
