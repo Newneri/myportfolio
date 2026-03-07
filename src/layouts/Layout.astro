@@ -1,5 +1,5 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
   title?: string;
@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-  title       = 'A.A — Portfolio',
-  description = 'Étudiant ingénieur à CY Tech, disponible en stage du 22 juin au 31 août.',
+  title = "A.A — Portfolio",
+  description = "Étudiant ingénieur à CY Tech, disponible en stage du 22 juin au 31 août.",
 } = Astro.props;
 ---
 
@@ -37,39 +37,40 @@ const {
     -->
     <script is:inline>
       (function () {
-        const saved = localStorage.getItem('theme');
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const theme = saved ?? (prefersDark ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
+        const saved = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)",
+        ).matches;
+        const theme = saved ?? (prefersDark ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
       })();
     </script>
   </head>
 
   <body class="bg-bg text-text font-sans overflow-x-hidden">
-
     <!-- Contenu de la page (sections injectées par index.astro) -->
     <slot />
-
   </body>
 </html>
 
 <!--
   Script global de gestion du thème.
-  Exposé sur window pour que ThemeToggle.astro puisse l'appeler.
 -->
 <script>
-  function applyTheme(theme: 'light' | 'dark') {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+  function applyTheme(theme: "light" | "dark") {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
 
     // Met à jour le label du bouton toggle (si présent)
-    const label = document.getElementById('theme-label');
-    if (label) label.textContent = theme === 'dark' ? 'light' : 'dark';
+    const label = document.getElementById("theme-label");
+    if (label) label.textContent = theme === "dark" ? "light" : "dark";
   }
 
   function toggleTheme() {
-    const current = document.documentElement.getAttribute('data-theme') as 'light' | 'dark';
-    applyTheme(current === 'dark' ? 'light' : 'dark');
+    const current = document.documentElement.getAttribute("data-theme") as
+      | "light"
+      | "dark";
+    applyTheme(current === "dark" ? "light" : "dark");
   }
 
   // Exposé globalement pour ThemeToggle.astro

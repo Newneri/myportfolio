@@ -1,28 +1,25 @@
----
-// src/components/sections/Contact.astro
----
-
-<section
-  id="contact-section"
-  class="bg-bg2 border-t border-border px-8 py-28"
->
+<section id="contact-section" class="bg-bg2 border-t border-border px-8 py-28">
   <div class="max-w-2xl mx-auto text-center">
-
-    <!-- Eyebrow -->
-    <p class="reveal font-mono text-xs tracking-widest uppercase text-accent mb-4">
+    <!-- Separateur -->
+    <p
+      class="reveal font-mono text-xs tracking-widest uppercase text-accent mb-4"
+    >
       05 — contact
     </p>
 
     <!-- Titre -->
     <h2 class="reveal font-serif font-light text-5xl leading-tight mb-6">
-      Travaillons<br>
+      Travaillons<br />
       <em class="italic text-accent">ensemble</em>
     </h2>
 
     <!-- Sous-titre -->
-    <p class="reveal text-base leading-relaxed text-text-soft max-w-md mx-auto mb-12">
-      Disponible du <strong class="text-text font-medium">22 juin au 31 août</strong> pour
-      un stage en développement web, logiciel ou data. Basé à Pau 64000.
+    <p
+      class="reveal text-base leading-relaxed text-text-soft max-w-md mx-auto mb-12"
+    >
+      Disponible du <strong class="text-text font-medium"
+        >22 juin au 31 août</strong
+      > pour un stage en développement web, logiciel ou data. Basé à Pau 64000.
     </p>
 
     <!-- CTA -->
@@ -64,26 +61,29 @@
         Fait avec Astro, Tailwind & GSAP
       </p>
     </div>
-
   </div>
 </section>
 
 <script>
-  import gsap from 'gsap';
-  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.utils.toArray<HTMLElement>('#contact-section .reveal').forEach((el, i) => {
-    gsap.fromTo(el,
-      { opacity: 0, y: 20 },
-      {
-        opacity: 1, y: 0,
-        duration: 0.7,
-        delay: i * 0.12,
-        ease: 'power2.out',
-        scrollTrigger: { trigger: el, start: 'top 88%', once: true },
-      }
-    );
-  });
+  gsap.utils
+    .toArray<HTMLElement>("#contact-section .reveal")
+    .forEach((el, i) => {
+      gsap.fromTo(
+        el,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          delay: i * 0.12,
+          ease: "power2.out",
+          scrollTrigger: { trigger: el, start: "top 88%", once: true },
+        },
+      );
+    });
 </script>
