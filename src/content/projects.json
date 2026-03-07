@@ -19,7 +19,7 @@
   },
   {
     "name": "Job Scrapper",
-    "desc": "Script Python utilisant BeautifulSoup, CloudScraper et Selenium pour extraire des offres d’emploi depuis plusieurs sites web (Indeed, Linkedin, WTJ, Hellowork). Les offres sont ensuite envoyées via un email HTML formaté à l'utilisatuer",
+    "desc": "Script Python utilisant BeautifulSoup, CloudScraper et Selenium pour extraire des offres d’emploi depuis plusieurs sites web (Indeed, Linkedin, WTJ, Hellowork). Les offres sont ensuite envoyées via un email HTML formaté à l'utilisateur.",
     "tags": ["Python", "Automatisation", "Scraping"],
     "link": "https://github.com/Newneri/job-scrapper#"
   }
