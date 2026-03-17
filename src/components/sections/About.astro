@@ -1,110 +1,79 @@
+---
+import type { Translations, InfoItem, InterestItem } from '../../i18n/utils';
+
+interface Props {
+  t: Translations['about'];
+}
+
+const { t } = Astro.props;
+---
+
 <section id="about-section" class="max-w-4xl mx-auto px-8 py-28">
-  <!-- Separateur -->
+
   <p class="reveal font-mono text-xs tracking-widest uppercase text-accent mb-4">
-    01 — à propos
+    {t.eyebrow}
   </p>
 
-  <!-- Titre -->
   <h2 class="reveal font-serif font-light text-5xl leading-tight mb-12">
-    Étudiant ingénieur,<br />
-    <em class="italic text-accent">curieux et créatif par nature</em>
+    {t.title}<br>
+    <em class="italic text-accent">{t.titleEm}</em>
   </h2>
 
-  <!-- Grille contenu -->
   <div class="reveal grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-    <!-- Texte de présentation -->
-    <div class="flex flex-col gap-5">
-      <p class="text-base leading-relaxed text-text-soft">
-        Je suis en <strong class="text-text font-medium">1ère année du cycle ingénieur à CY Tech</strong>, 
-        spécialisation informatique. Passionné par la création — que ce soit
-        développer une app, modéliser en 3D, ou explorer de nouveaux endroits.
-      </p>
-      <p class="text-base leading-relaxed text-text-soft">
-        Je cherche un <strong class="text-text font-medium">stage du 22 juin au 31 août</strong>
-        en développement web, logiciel ou data analyse. Basé à Pau (64000) et aux
-        alentorus.
-      </p>
 
-      <!-- Infos rapides -->
+    <div class="flex flex-col gap-5">
+      <p class="text-base leading-relaxed text-text-soft" set:html={t.p1} />
+      <p class="text-base leading-relaxed text-text-soft" set:html={t.p2} />
+
       <div class="flex flex-col gap-2 pt-2">
-        {
-          [
-            { label: "école", value: "CY Tech — Pau" },
-            { label: "niveau", value: "Bac+3 — Cycle Ingénieur" },
-            { label: "dispo", value: "22 juin → 31 août 2026" },
-            { label: "lieu", value: "Pau − Pyrénées Atlantiques" },
-          ].map(({ label, value }) => (
-            <div class="flex items-baseline gap-3">
-              <span class="font-mono text-xs text-text-muted w-16 shrink-0">
-                {label}
-              </span>
-              <span class="text-sm text-text-soft">{value}</span>
-            </div>
-          ))
-        }
+        {t.info.map((item: InfoItem) => (
+          <div class="flex items-baseline gap-3">
+            <span class="font-mono text-xs text-text-muted w-16 shrink-0">{item.label}</span>
+            <span class="text-sm text-text-soft">{item.value}</span>
+          </div>
+        ))}
       </div>
     </div>
 
-    <!-- Carte centres d'intérêt -->
     <div class="bg-surface border border-border rounded-xl p-6 shadow-soft">
       <p class="font-mono text-xs tracking-widest uppercase text-text-muted mb-5">
-        centres d'intérêt
+        {t.interestsLabel}
       </p>
-
       <ul class="flex flex-col gap-4">
-        {
-          [
-            {
-              icon: "✈️",
-              title: "Voyage",
-              desc: "Explorer de nouvelles cultures et paysages.",
-            },
-            {
-              icon: "🏐",
-              title: "Volleyball",
-              desc: "Pratique régulière en club, esprit d'équipe.",
-            },
-            {
-              icon: "🗿",
-              title: "Modélisation 3D",
-              desc: "Blender — scènes, objets, rendus réalistes.",
-            },
-          ].map(({ icon, title, desc }) => (
-            <li class="flex items-start gap-4">
-              <span class="text-2xl leading-none mt-0.5">{icon}</span>
-              <div>
-                <p class="text-sm font-medium text-text">{title}</p>
-                <p class="text-xs text-text-muted mt-0.5">{desc}</p>
-              </div>
-            </li>
-          ))
-        }
+        {t.interests.map((item: InterestItem) => (
+          <li class="flex items-start gap-4">
+            <span class="text-2xl leading-none mt-0.5">{item.icon}</span>
+            <div>
+              <p class="text-sm font-medium text-text">{item.title}</p>
+              <p class="text-xs text-text-muted mt-0.5">{item.desc}</p>
+            </div>
+          </li>
+        ))}
       </ul>
     </div>
+
   </div>
+
 </section>
 
 <hr class="border-t border-border mx-8" />
 
 <script>
-  import gsap from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import gsap from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
   gsap.registerPlugin(ScrollTrigger);
 
-  // Anime chaque élément .reveal dans cette section
-  gsap.utils.toArray<HTMLElement>("#about-section .reveal").forEach((el, i) => {
-    gsap.from(el, {
-      opacity: 0,
-      y: 20,
-      duration: 0.7,
-      delay: i * 0.1,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: el,
-        start: "top 85%",
-        once: true,
-      },
-    });
+  gsap.utils.toArray<HTMLElement>('#about-section .reveal').forEach((el, i) => {
+    gsap.fromTo(el,
+      { opacity: 0, y: 20 },
+      {
+        opacity: 1, y: 0,
+        duration: 0.7,
+        delay: i * 0.1,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+      }
+    );
   });
 </script>

@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "title": "Abdelhamid Akhatar — Portfolio",
+    "description": "Engineering student at CY Tech, available for internship from June 22 to August 31."
+  },
+  "terminal": {
+    "label": "abdelhamid akhatar — portfolio",
+    "lines": [
+      { "type": "cmd",    "text": "boot portfolio.sh"                        },
+      { "type": "output", "text": "Loading profile..."                       },
+      { "type": "ok",     "text": "✓  Abdelhamid Akhatar"                       },
+      { "type": "spacer"                                                      },
+      { "type": "cmd",    "text": "cat info.json"                            },
+      { "type": "output", "text": "School   CY Tech — Software Engineering"  },
+      { "type": "output", "text": "Avail.   June 22 → August 31, 2026"       },
+      { "type": "output", "text": "Role     Internship web / software / data"},
+      { "type": "spacer"                                                      },
+      { "type": "cmd",    "text": "ls interests/"                            },
+      { "type": "output", "text": "travel   volleyball   3d-modeling"        },
+      { "type": "spacer"                                                      }
+    ],
+    "scrollHint": "scroll to explore"
+  },
+  "nav": {
+    "about":     "about",
+    "skills":    "skills",
+    "education": "education",
+    "projects":  "projects",
+    "contact":   "contact"
+  },
+  "about": {
+    "eyebrow":   "01 — about",
+    "title":     "Engineering student,",
+    "titleEm":   "curious by nature",
+    "p1": "I'm in my <strong>1st year at CY Tech</strong>, majoring in computer science. Passionate about creation — whether it's building apps, 3D modeling, or exploring new places.",
+    "p2": "I'm looking for an <strong>internship from June 22 to August 31</strong> in web development, software or data analysis. Based in the Pau area, open to remote.",
+    "infoLabel": "school",
+    "info": [
+      { "label": "school", "value": "CY Tech — Cergy"             },
+      { "label": "level",  "value": "Bac+3 — Engineering Cycle"   },
+      { "label": "avail.", "value": "June 22 → August 31, 2026"   },
+      { "label": "area",   "value": "Pau 64000, France"           }
+    ],
+    "interestsLabel": "interests",
+    "interests": [
+      { "icon": "✈️", "title": "Travel",      "desc": "Exploring new cultures and landscapes."        },
+      { "icon": "🏐", "title": "Volleyball",  "desc": "Regular club practice, team spirit."           },
+      { "icon": "🗿", "title": "3D Modeling", "desc": "Blender — scenes, objects, realistic renders." }
+    ]
+  },
+  "skills": {
+    "eyebrow": "02 — skills",
+    "title":   "What I",
+    "titleEm": "master",
+    "filterAll": "all"
+  },
+  "education": {
+    "eyebrow":    "03 — education",
+    "title":      "Education &",
+    "titleEm":    "experience",
+    "badgeExp":   "experience",
+    "badgeEdu":   "education"
+  },
+  "projects": {
+    "eyebrow": "04 — projects",
+    "title":   "What I've",
+    "titleEm": "built"
+  },
+  "contact": {
+    "eyebrow":   "05 — contact",
+    "title":     "Let's work",
+    "titleEm":   "together",
+    "subtitle":  "Available from <strong>June 22 to August 31</strong> for an internship in web development, software or data. Based in Pau, open to remote.",
+    "email":     "get in touch",
+    "cv":        "download CV",
+    "madeWith":  "Built with Astro, Tailwind & GSAP"
+  }
+}

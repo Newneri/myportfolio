@@ -1,0 +1,33 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ThemeToggle from '../../components/ThemeToggle.astro';
+import LangToggle from '../../components/LangToggle.astro';
+import Nav from '../../components/Nav.astro';
+import Terminal from '../../components/Terminal.astro';
+import About from '../../components/sections/About.astro';
+import Skills from '../../components/sections/Skills.astro';
+import Education from '../../components/sections/Education.astro';
+import Projects from '../../components/sections/Projects.astro';
+import Contact from '../../components/sections/Contact.astro';
+import { useTranslations } from '../../i18n/utils';
+import type { TimelineItem } from '../../components/sections/Education.astro';
+import type { Project } from '../../components/sections/Projects.astro';
+
+import timelineData from '../../content/timeline.json';
+import projectsData from '../../content/projects.json';
+
+const lang = 'fr';
+const t = useTranslations(lang);
+---
+
+<Layout title={t.meta.title} description={t.meta.description} lang={lang}>
+  <ThemeToggle />
+  <LangToggle />
+  <Nav t={t.nav} />
+  <Terminal t={t.terminal} />
+  <About t={t.about} />
+  <Skills t={t.skills} />
+  <Education t={t.education} items={timelineData as TimelineItem[]} />
+  <Projects t={t.projects} items={projectsData as Project[]} />
+  <Contact t={t.contact} />
+</Layout>

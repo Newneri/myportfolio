@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Interactive Portfolio",
+    "desc": "This website — animated terminal + cinematic scroll with dark/light mode.",
+    "tags": ["Astro", "GSAP", "TypeScript", "Tailwind"],
+    "link": "https://github.com/Newneri/myportfolio"
+  },
+  {
+    "name": "EcoBase − Ecocène",
+    "desc": "Web application for managing collaborative projects across multiple associations at a European scale. Handles tasks, permissions, and member management. Built with PHP, JavaScript, HTML and CSS.",
+    "tags": ["PHP", "HTML", "CSS", "JavaScript"],
+    "link": "https://www.ecocene.fr/"
+  },
+  {
+    "name": "Writterly",
+    "desc": "Web application for writing mini-blogs, built entirely with React and Node.js. Includes a SQLite database, JWT authentication, and a fully custom REST API.",
+    "tags": ["React", "NodeJS", "SQLite", "JWT"],
+    "link": "https://github.com/Newneri/Writerly"
+  },
+  {
+    "name": "Job Scraper",
+    "desc": "Python script using BeautifulSoup, CloudScraper and Selenium to extract job listings from multiple job boards (Indeed, LinkedIn, WTTJ, Hellowork). Results are sent to the user as a formatted HTML email.",
+    "tags": ["Python", "Automation", "Scraping"],
+    "link": "https://github.com/Newneri/job-scrapper#"
+  }
+]

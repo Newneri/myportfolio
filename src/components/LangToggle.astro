@@ -1,0 +1,25 @@
+---
+import { getLang, getAlternateLang } from '../i18n/utils';
+
+const lang        = getLang(Astro.url);
+const alternateUrl = getAlternateLang(Astro.url);
+const label       = lang === 'fr' ? 'en' : 'fr';
+---
+
+<a
+  href={alternateUrl}
+  aria-label="Changer la langue"
+  class="
+    fixed top-5 right-24 z-50 mr-2
+    flex items-center gap-2
+    bg-surface border border-border
+    rounded-full px-3 py-1.5
+    font-mono text-xs text-text-muted
+    shadow-soft cursor-pointer
+    hover:text-text hover:border-accent
+    transition-all duration-300
+  "
+>
+  <span class="w-1.5 h-1.5 rounded-full bg-accent"></span>
+  {label}
+</a>

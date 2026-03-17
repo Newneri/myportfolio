@@ -2,20 +2,23 @@
 import "../styles/global.css";
 import Analytics from '@vercel/analytics/astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
+import { Lang } from '../i18n/utils';
 
 interface Props {
   title?: string;
   description?: string;
+  lang?: Lang;
 }
 
 const {
   title = "Abdelhamid Akhatar — Portfolio",
   description = "Étudiant ingénieur à CY Tech, disponible en stage du 22 juin au 31 août.",
+  lang = 'fr',
 } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="fr" data-theme="light">
+<html lang={lang} data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -33,6 +36,8 @@ const {
       href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@3.0.0/dist/typed.umd.js"></script>
+
 
     <!--
       Inlining du script de thème AVANT le rendu pour éviter le flash pendant la lecture du localStorage.

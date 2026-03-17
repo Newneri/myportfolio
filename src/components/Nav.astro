@@ -1,10 +1,18 @@
 ---
-const links = [
-  { href: '#about-section',     label: 'about'    },
-  { href: '#skills-section',    label: 'skills'   },
-  { href: '#education-section', label: 'parcours' },
-  { href: '#projects-section',  label: 'projets'  },
-  { href: '#contact-section',   label: 'contact'  },
+import type { Translations } from '../i18n/utils';
+
+interface Props {
+  t: Translations['nav'];
+}
+
+const { t } = Astro.props;
+
+const links: { href: string; label: string }[] = [
+  { href: '#about-section',     label: t.about     },
+  { href: '#skills-section',    label: t.skills    },
+  { href: '#education-section', label: t.education },
+  { href: '#projects-section',  label: t.projects  },
+  { href: '#contact-section',   label: t.contact   },
 ];
 ---
 
@@ -18,12 +26,12 @@ const links = [
     opacity-0 transition-opacity duration-500
   "
 >
-  {links.map(link => (
+  {links.map((link: { href: string; label: string }) => (
     <a
       href={link.href}
       data-nav-item
       class="
-        font-mono text-[0.68rem] tracking-wider
+        font-mono text-xs tracking-wider
         px-3 py-1.5 rounded-full
         text-text-muted
         hover:text-accent hover:bg-accent-soft
@@ -42,10 +50,10 @@ const links = [
     (entries) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-        document.querySelectorAll('[data-nav-item]').forEach(el => {
+        document.querySelectorAll<HTMLElement>('[data-nav-item]').forEach(el => {
           const isActive = el.getAttribute('href') === `#${entry.target.id}`;
-          el.classList.toggle('text-accent',      isActive);
-          el.classList.toggle('bg-accent-soft',   isActive);
+          el.classList.toggle('text-accent',     isActive);
+          el.classList.toggle('bg-accent-soft',  isActive);
           el.classList.toggle('text-text-muted', !isActive);
         });
       });

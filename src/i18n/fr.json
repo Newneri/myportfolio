@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "title": "Abdelhamid Akhatar — Portfolio",
+    "description": "Étudiant ingénieur à CY Tech, disponible en stage du 22 juin au 31 août."
+  },
+  "terminal": {
+    "label": "abdelhamid akhatar — portfolio",
+    "lines": [
+      { "type": "cmd",    "text": "boot portfolio.sh"                        },
+      { "type": "output", "text": "Chargement du profil..."                  },
+      { "type": "ok",     "text": "✓  Abdelhamid Akhatar"                       },
+      { "type": "spacer"                                                      },
+      { "type": "cmd",    "text": "cat info.json"                            },
+      { "type": "output", "text": "École    CY Tech — Ingénieur Informatique"},
+      { "type": "output", "text": "Dispo    22 juin → 31 août 2026"          },
+      { "type": "output", "text": "Poste    Stage dev web / logiciel / data" },
+      { "type": "spacer"                                                      },
+      { "type": "cmd",    "text": "ls interests/"                            },
+      { "type": "output", "text": "voyage   volleyball   modelage-3d"        },
+      { "type": "spacer"                                                      }
+    ],
+    "scrollHint": "scroll pour explorer"
+  },
+  "nav": {
+    "about":     "about",
+    "skills":    "compétences",
+    "education": "parcours",
+    "projects":  "projets",
+    "contact":   "contact"
+  },
+  "about": {
+    "eyebrow":   "01 — à propos",
+    "title":     "Étudiant ingénieur,",
+    "titleEm":   "curieux par nature",
+    "p1": "Je suis en <strong>1ère année à CY Tech</strong>, spécialisation informatique. Passionné par la création — que ce soit développer une app, modéliser en 3D, ou explorer de nouveaux endroits.",
+    "p2": "Je cherche un <strong>stage du 22 juin au 31 août</strong> en développement web, logiciel ou data analyse. Basé à Pau, ouvert au télétravail.",
+    "infoLabel": "école",
+    "info": [
+      { "label": "école",  "value": "CY Tech — Cergy"          },
+      { "label": "niveau", "value": "Bac+3 — Cycle Ingénieur"  },
+      { "label": "dispo",  "value": "22 juin → 31 août 2026"   },
+      { "label": "lieu",   "value": "Pau 64000, France"        }
+    ],
+    "interestsLabel": "centres d'intérêt",
+    "interests": [
+      { "icon": "✈️", "title": "Voyage",          "desc": "Explorer de nouvelles cultures et paysages."   },
+      { "icon": "🏐", "title": "Volleyball",       "desc": "Pratique régulière en club, esprit d'équipe."  },
+      { "icon": "🗿", "title": "Modélisation 3D",  "desc": "Blender — scènes, objets, rendus réalistes."   }
+    ]
+  },
+  "skills": {
+    "eyebrow": "02 — compétences",
+    "title":   "Ce que je",
+    "titleEm": "maîtrise",
+    "filterAll": "tout"
+  },
+  "education": {
+    "eyebrow":    "03 — parcours",
+    "title":      "Formation &",
+    "titleEm":    "expériences",
+    "badgeExp":   "expérience",
+    "badgeEdu":   "formation"
+  },
+  "projects": {
+    "eyebrow": "04 — projets",
+    "title":   "Ce que j'ai",
+    "titleEm": "construit"
+  },
+  "contact": {
+    "eyebrow":   "05 — contact",
+    "title":     "Travaillons",
+    "titleEm":   "ensemble",
+    "subtitle":  "Disponible du <strong>22 juin au 31 août</strong> pour un stage en développement web, logiciel ou data. Basé à Pau, ouvert au télétravail.",
+    "email":     "m'écrire",
+    "cv":        "télécharger le CV",
+    "madeWith":  "Fait avec Astro, Tailwind & GSAP"
+  }
+}

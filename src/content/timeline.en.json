@@ -1,0 +1,30 @@
+[
+  {
+    "date": "2025 − present",
+    "role": "Instructor and coordinator of computer science workshops",
+    "place": "Science Odyssée — Pau, France",
+    "desc": "Organizing workshops for children and teenagers. Introduction to programming, robotics, and computer science.",
+    "type": "experience"
+  },
+  {
+    "date": "2025 − present",
+    "role": "Private tutor in mathematics, Spanish and computer science",
+    "place": "Complétude — Pau, France",
+    "desc": "Academic support for middle and high school students. Exam preparation, homework help, and skill development in mathematics, Spanish and computer science.",
+    "type": "experience"
+  },
+  {
+    "date": "2025 — present",
+    "role": "Software Engineering Cycle",
+    "place": "CY Tech — Pau, France",
+    "desc": "Major in software development and systems. Projects in web development, algorithms, and databases.",
+    "type": "education"
+  },
+  {
+    "date": "2022 — 2025",
+    "role": "Integrated Preparatory Classes",
+    "place": "CY Tech — Pau, France",
+    "desc": "Mathematics, physics, computer science. Trained in rigorous analytical thinking and problem-solving.",
+    "type": "education"
+  }
+]
